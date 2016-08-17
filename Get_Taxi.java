@@ -16,6 +16,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -68,9 +69,9 @@ public class Get_Taxi extends FragmentActivity implements OnMapReadyCallback, Go
     double currentLatitude;
     double currentLongitude;
 
+    Button button2;         //Assign me a taxi
     AppCompatButton buttonSelect, buttonAssign, buttonCall;
     TextView textView1, textView2, textViewName1, textViewLicenseNo1,textViewAddress1,textViewMobile1,textViewTaxiNo1;
-
 
     double destnLatitude;
     double destnLongitude;
@@ -79,7 +80,6 @@ public class Get_Taxi extends FragmentActivity implements OnMapReadyCallback, Go
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get__taxi);
-
 
         if (googleApiClient == null) {
             googleApiClient = new GoogleApiClient.Builder(this)

@@ -1,5 +1,6 @@
 package com.example.sujit.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -86,28 +87,33 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
          int id = item.getItemId();
+        if (id == R.id.nav_fareRate) {
+            Fare_Rate fragment = new Fare_Rate();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
+            getSupportActionBar().setTitle("Fare Rate");
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery)
+        } else if (id == R.id.nav_bookMyRide)
         {
-            GalleryFragment fragment = new GalleryFragment();
+            startActivity(new Intent(MainActivity.this, Get_Taxi.class));
+           /* GalleryFragment fragment = new GalleryFragment();
             FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
             getSupportActionBar().setTitle(" GMAP ");
+            */
 
         }
-        else if (id == R.id.nav_slideshow) {
+        else if (id == R.id.nav_rateMyDriver) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_settings) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_emergency) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_about) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

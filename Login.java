@@ -54,6 +54,7 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(Login.this, MainActivity.class));  /*Remove This !!! */
                 login();
             }
         });
@@ -94,7 +95,6 @@ public class Login extends AppCompatActivity {
                         if(response.contains("success")){
                             Log.d("LoginResponse", response);
                           //  storeUserData(phoneNo,password);
-
                             session.setLogin(true);
                             startActivity(new Intent(Login.this, MainActivity.class));
                             finish();
